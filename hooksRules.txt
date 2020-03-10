@@ -1,0 +1,34 @@
+- Only call Hooks at the Top Level
+  > Don't call Hooks inside loops, conditions, or nested functions
+
+- Only call Hooks from React functions
+  > Call them from within React functional components and not just any regular JS function
+
+
+*** useEffect(fn, dependencies[]) ***
+- The Effect Hook lets you perform side effects in functional components
+- It is a close replacement for componentDidMount, componentDidUpdate and componentWillUnmount
+
+
+*** useReducer(reducer, initialValue) ***
+- Is a hook that is used for state managment
+- It is an alternative to useState
+- newState = reducer(currentState, action)
+- returns a pair of values. [newState, dispatch]
+- Difference:
+ > useState is build using useReducer
+    Scenario                            useState                            useReducer
+    > Type of state                     > Number, String, Bool              > Object or array
+    > Number of state transitions       > One or two                        > Too many
+    > Related state transitions?        > No                                > Yes
+    > Business logic                    > No business logic                 > Complex business logic
+    > Local vs Global                   > Local                             > Global
+
+
+*** useCallback(fn, dependencies[]) ***
+- What: Is a hook that will return a memorized version of the callback function that only 
+    changes if one of the dependencies has changed.
+- Why: It is usefuel when parsing callbacks to optimized child components that rely on reference
+    equelity to prevent unncessary renders.
+- If you need to cache a function - useCallback, if you need to cache
+    the result of invoked function - useMemo
